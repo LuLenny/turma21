@@ -1,8 +1,8 @@
-package exercicios;
+package listas;
 import java.math.*;
 import java.util.Scanner;
 
-public class Exerciciocarrosfabrica {
+public class exercicio8 {
 	
 	public static void main(String[] args) {
 	
