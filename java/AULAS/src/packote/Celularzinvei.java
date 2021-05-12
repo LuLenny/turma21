@@ -7,7 +7,7 @@ public class Celularzinvei {
 
 	 
 	public void BateriaExcesso(){
-		if((bateria >= 85);
+		if(bateria >= 85)
 		{
 			(temperatura == 29);
  System.out.println("seu celular está em estado crítico %d",temperatura);
