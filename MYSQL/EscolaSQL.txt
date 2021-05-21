@@ -1,0 +1,26 @@
+create database db_escola;
+use db_escola;
+create table tb_alune(
+id bigint auto_increment,
+nome varchar(20) not null,
+nota int,
+apronta char,
+idade int,
+genero char,
+orfão boolean,
+primary key (id)
+);
+insert into tb_alune (nome, apronta, nota, idade, genero, orfão) value ("Ramirez", 'n',10, 15, 'M', true);
+insert into tb_alune (nome, apronta, nota, idade, genero, orfão) value ("Alanna", 's',5, 14, 'F', false);
+insert into tb_alune (nome, apronta, nota, idade, genero, orfão) value ("Ernesto", 'n',9, 17, 'M', false);
+insert into tb_alune (nome, apronta, nota, idade, genero, orfão) value ("Heleno", 'n',4, 15, 'O', false);
+insert into tb_alune (nome, apronta, nota, idade, genero, orfão) value ("Jairo", 's',3, 16, 'M', true);
+insert into tb_alune (nome, apronta, nota, idade, genero, orfão) value ("Selena", 'n',8, 17, 'F', true);
+insert into tb_alune (nome, apronta, nota, idade, genero, orfão) value ("Oscar", 'n',9, 15, 'M', false);
+insert into tb_alune (nome, apronta, nota, idade, genero, orfão) value ("Jasmine", 's',8, 16, 'F', false);
+
+
+select * from tb_alune where (nota<7);
+select * from tb_alune where (nota>7);
+
+update tb_alune set nota = 9 where id = 4;

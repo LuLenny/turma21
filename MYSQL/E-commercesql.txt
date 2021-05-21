@@ -1,0 +1,21 @@
+create database db_ecommerce;
+use db_ecommerce;
+create table tb_produtos(
+id bigint auto_increment,
+nome varchar(20) not null, 
+preço int,
+categoria varchar (20) not null,
+promoção boolean,
+primary key (id)
+);
+insert into tb_produtos (nome, preço, categoria, promoção) value ("melancia", 10, "fruta", true);
+	insert into tb_produtos (nome, preço, categoria, promoção) value ("pneu", 160, "automóvel", false);
+	insert into tb_produtos (nome, preço, categoria, promoção) value ("veja", 6, "limpeza", true); 
+    	insert into tb_produtos (nome, preço, categoria, promoção) value ("Rodo", 16, "limpeza", true);
+        	insert into tb_produtos (nome, preço, categoria, promoção) value ("chamyto", 15, "laticinio", false);
+            	insert into tb_produtos (nome, preço, categoria, promoção) value ("bicicleta", 650, "transporte", false);
+                
+select * from tb_produtos where (preço<600);
+select * from tb_produtos where (preço>600);
+
+update tb_produtos set preço = 645 where id =2;

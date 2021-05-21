@@ -1,0 +1,25 @@
+create database db_rh;
+use db_rh;
+Create table tb_funcionare(
+  id bigint auto_increment,
+	nome varchar(20) not null,
+    salario int,
+    ativo boolean,
+    idade int,
+	genero char(1),
+    primary key (id)
+  );
+  insert into tb_funcionare(nome, salario, ativo, idade, genero) values ("Nadila", 2000, true, 32, 'F');
+insert into tb_funcionare (nome, salario, ativo, idade, genero) values ("Karin", 6500, true, 20,'F');
+insert into tb_funcionare (nome, salario, ativo, idade, genero) values ("Oriana", 1500, true, 27,'F');
+insert into tb_funcionare (nome, salario, ativo, idade, genero) values ("Carlos", 1500, true, 22,'M');
+insert into tb_funcionare (nome, salario, ativo, idade, genero) values ("Carine", 3500, true, 27,'O');
+
+  select * from tb_funcionare;
+
+//
+
+select * from tb_funcionare where (salario <2000) ;
+select * from tb_funcionare where (salario >2000) ;
+update tb_funcionare set genero = 'N' where id = 2;
+select * from tb_funcionare;
