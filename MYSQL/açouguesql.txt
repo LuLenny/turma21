@@ -1,0 +1,39 @@
+create database db_cidade_das_carnes;
+use db_cidade_das_carnes;
+create table tb_categoria(
+id bigint auto_increment,
+tipo varchar (255) not null,
+corte varchar (255) not null, 
+primary key (id)
+);
+insert into tb_categoria (tipo, corte) values ("ave", "coxa");	
+insert into tb_categoria (tipo, corte) values ("bovino", "maminha");	
+insert into tb_categoria (tipo, corte) values ("bovino", "cupim");
+insert into tb_categoria (tipo, corte) values ("ave", "asa");	
+insert into tb_categoria (tipo, corte) values ("bovino", "picanha");	
+
+    
+create table tb_produto(
+id bigint auto_increment,
+kilo varchar (255) not null,
+id_categoria bigint,
+qualidade varchar (255) not null,
+preço float,
+primary key (id),
+foreign key (id_categoria) references tb_categoria (id)
+);
+insert into tb_produto (kilo, id_categoria, qualidade, preço) values ("10kg",1,"mole",25.00);
+insert into tb_produto (kilo, id_categoria, qualidade, preço) values ("15kg",2,"ao-molho-madeira",55.00);
+insert into tb_produto (kilo, id_categoria, qualidade, preço) values ("5kg",4,"pururuca",20.00);
+insert into tb_produto (kilo, id_categoria, qualidade, preço) values ("4kg",3,"acebolado",55.00);
+insert into tb_produto (kilo, id_categoria, qualidade, preço) values ("25kg",5,"ao-manteiga",75.00);
+insert into tb_produto (kilo, id_categoria, qualidade, preço) values ("35kg",2,"ao-alho",65.00);
+
+select * from tb_produto where preço > 50.00;
+select * from tb_produto where preço between 3.00 and 60.00;
+select qualidade from tb_produto where qualidade like "%C%";
+	
+
+select* from tb_produto
+inner join tb_categoria on tb_categoria.id = tb_produto.id_categoria
+where tb_produto.id_categoria = 1;

@@ -1,0 +1,42 @@
+create database db_generation_game_online;
+create table tb_classe(
+id bigint auto_increment,
+nomedaclasse varchar (255) not null,
+energia int,
+especialidade varchar (50) not null,
+primary key (id)
+);
+insert into tb_classe (nomedaclasse, energia, especialidade) values ("Gunslinger", 540, "tiros rápidos");
+insert into tb_classe (nomedaclasse, energia, especialidade) values ("Berserk", 800, "explosão de dano");
+insert into tb_classe (nomedaclasse, energia, especialidade) values ("Tanque", 600, "durabilidade");
+insert into tb_classe (nomedaclasse, energia, especialidade) values ("Lutador", 790, "combos de dano");	
+insert into tb_classe (nomedaclasse, energia, especialidade) values ("Controlador", 440, "manipulação de arena");
+
+create table tb_personagem(
+id bigint auto_increment,
+classe_id bigint,
+nome varchar (255) not null,
+idade int,
+defesa int,
+ataque int,
+velocidade int,
+primary key (id),
+foreign key (classe_id) references tb_classe (id)
+);
+insert into tb_personagem (nome, classe_id, defesa, ataque, velocidade) values ("Carrigan", 1, 250, 4200, 233);
+insert into tb_personagem (nome, classe_id, defesa, ataque, velocidade) values ("Lardan", 4, 1700, 320, 210);
+insert into tb_personagem (nome, classe_id, defesa, ataque, velocidade) values ("Carter", 5, 470, 1790, 220);
+insert into tb_personagem (nome, classe_id, defesa, ataque, velocidade) values ("Jarbas", 2, 1250, 2340, 220);
+insert into tb_personagem (nome, classe_id, defesa, ataque, velocidade) values ("Frans'uai", 2, 440, 3400, 243);
+insert into tb_personagem (nome, classe_id, defesa, ataque, velocidade) values ("Aatex", 2, 1560, 1990, 211);
+insert into tb_personagem (nome, classe_id, defesa, ataque, velocidade) values ("Drevin", 1, 634, 2000, 223);
+insert into tb_personagem (nome, classe_id, defesa, ataque, velocidade) values ("Casser", 4, 850, 1900, 243);
+
+select * from tb_personagem where (ataque>2000);
+select * from tb_personagem where (defesa between 1000 and 2000);		
+
+select tb_personagem.nome, tb_classe.nomedaclasse  from tb_personagem 
+Inner join tb_classe on tb_classe.id = tb_personagem.classe_id
+where tb_personagem.classe_id =1;
+
+select nome from tb_personagem where nome like "%c%"

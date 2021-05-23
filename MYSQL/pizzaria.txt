@@ -1,0 +1,36 @@
+create database db_pizzaria_legal;
+use db_pizzaria_legal;
+create table tb_categoria(
+id bigint auto_increment,
+vegetariana boolean,
+carne boolean,
+salgada boolean,
+doce boolean,
+primary key (id)
+);
+insert into tb_categoria(vegetariana, carne, salgada, doce) values (true,false,true,false);
+insert into tb_categoria(vegetariana, carne, salgada, doce) values (false,true,true,false);
+insert into tb_categoria(vegetariana, carne, salgada, doce) values (false,false,false,true);
+
+create table tb_pizza(
+id bigint  auto_increment,
+preço float,
+acompanhamento varchar  (255) not null,
+id_categoria bigint,
+nome varchar (255),
+primary key(id),
+foreign key (id_categoria) References tb_categoria(id)
+);
+insert into tb_pizza(preço,acompanhamento,id_categoria,nome) values (39.90, "refri",1,"rúcula"); 
+insert into tb_pizza(preço,acompanhamento,id_categoria,nome) values (59.90, "nada",3,"melzinho do amor"); 
+insert into tb_pizza(preço,acompanhamento,id_categoria,nome) values (49.90, "refri",2,"calabresa");
+insert into tb_pizza(preço,acompanhamento,id_categoria,nome) values (25.90, "nada",1,"brócolis"); 
+insert into tb_pizza(preço,acompanhamento,id_categoria,nome) values (20.00, "refri",2,"Pepperoni"); 
+insert into tb_pizza(preço,acompanhamento,id_categoria,nome) values (48.90, "refri",3,"chocolate"); 
+
+select * from tb_pizza where (preço>45.00);
+select * from tb_pizza where preço between 29.00 and 60.00;
+select nome from tb_pizza where nome like "%c%";
+select * from tb_pizza 
+inner join tb_categoria on tb_categoria.id = tb_pizza.id_categoria
+where tb_pizza.id_categoria = 3;
